@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding= "utf-8"?>
+
+<openerp>
+   <data>
+
+        <record id="sale_action_dietfacts" model= "ir.actions.act_window" >
+            <field name="name" >Ilusiones Sales</field >
+            <field name="type" >ir.actions.act_window</field>
+            <field name="res_model" >res.users.sale</field >
+            <field name="view_mode" >tree,kanban,form</field >
+            <field name="view_type" >form</field >
+            <field name="help" type= "html">
+                <p class="oe_view_nocontent_create">
+                    Click to define a new sale
+                </p>
+            </field>
+        </record>
+        
+        <record id= "sale_type_form_view" model= "ir.ui.view">
+            <field name="model">res.users.sale</field >
+            <field name="view_type" >form</field >
+            <field name="arch" type= "xml">
+                <form>
+                    <group>
+                         <field name="user_id"/>
+                         <field name="sale_date"/>
+                         <field name="notes"/>
+                     </group>
+                     <notebook>
+                        <page name="prepago" string="Prepago">
+                            <field name="prepago_ids" widget="one2many_list">
+                                <tree string="Prepago" editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="type"/>
+                                    <field name="price"/>
+                                    <field name="serieSelection"/>
+                                    <field name="contract"/>
+                                    <field name="notes"/>
+                                </tree>
+                            </field>
+                        </page>
+                        
+                        <page name="plan" string="Plan">
+                            <field name="plan_ids" widget="one2many_list">
+                                <tree string="Plan" editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="month_rent"/>
+                                    <field name="notes"/>
+                                </tree>
+                            </field>
+                        </page>
+                        
+                        <page name="activation" string="Activation">
+                            <field name="activation_ids" widget="one2many_list">
+                                <tree string="Activation" editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="serieSelection"/>
+                                    <field name="contract"/>
+                                    <field name="month_rent"/>
+                                    <field name="combo"/>
+                                    <field name="notes"/>
+                                </tree>
+                            </field>
+                        </page>
+                     </notebook>
+                </form>
+            </field>
+        </record>
+
+        <menuitem action= "sale_action_dietfacts"
+            id="menu_sale_action_dietfacts"
+            parent="base.menu_sales" sequence= "14"/>
+            
+            
+
+
+    </data>
+</openerp>
