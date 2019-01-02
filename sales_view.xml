@@ -3,7 +3,7 @@
 <openerp>
    <data>
 
-        <record id="sale_action_dietfacts" model= "ir.actions.act_window" >
+        <record id="sale_action_client" model= "ir.actions.act_window" >
             <field name="name" >Ilusiones Sales</field >
             <field name="type" >ir.actions.act_window</field>
             <field name="res_model" >res.users.sale</field >
@@ -67,8 +67,8 @@
             </field>
         </record>
 
-        <menuitem action= "sale_action_dietfacts"
-            id="menu_sale_action_dietfacts"
+        <menuitem action= "sale_action_client"
+            id="menu_sale_action_client"
             parent="base.menu_sales" sequence= "14"/>
             
             
